@@ -1,0 +1,323 @@
+* {
+  background-color: #222B4C;
+  margin: 0;
+  padding: 0;
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  color: white;
+}
+
+body {
+  position: relative;
+  padding: 2em;
+}
+
+h1, h2, h3, h4, .title-input input, .type-input select, h5, span, p {
+  color: inherit;
+  background: transparent;
+}
+
+h1 {
+  font-size: 56px;
+}
+
+h2 {
+  font-size: 36px;
+}
+
+h3 {
+  font-size: 28px;
+}
+
+h4, .title-input input, .type-input select {
+  font-size: 20px;
+}
+
+h5 {
+  font-size: 16px;
+}
+
+@media only screen and (max-width: 899px) {
+  h1 {
+    font-size: 36px;
+  }
+  h2 {
+    font-size: 28px;
+  }
+  h3 {
+    font-size: 20px;
+  }
+  h4, .title-input input, .type-input select {
+    font-size: 16px;
+  }
+  h5 {
+    font-size: 12px;
+  }
+}
+
+.title-text, .search-card .search-info .title {
+  font-family: 'Italiana', serif;
+  color: #D4EAFF;
+}
+
+.error-text {
+  font-weight: 500;
+  color: #D19C94;
+}
+
+.center-col, #root {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  background: none;
+}
+
+.center-row, .left-row, .type-input, .title-input, .title-input button, .poster-row-container .poster-row, .search-card, .search-card .search-info .info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  background: none;
+}
+
+.left-row, .type-input {
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  text-align: left;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}
+
+.search-form {
+  width: 100%;
+  max-width: 900px;
+  margin: 1em 0;
+}
+
+.title-input {
+  width: 100%;
+}
+
+.title-input input {
+  width: 100%;
+  height: 40px;
+  background-color: white;
+  padding: 0 10px;
+  border: none;
+  color: #161F1C;
+}
+
+.title-input input:focus {
+  outline: none !important;
+}
+
+.title-input input::-webkit-input-placeholder {
+  text-align: center;
+  color: #D19C94;
+}
+
+.title-input input:-ms-input-placeholder {
+  text-align: center;
+  color: #D19C94;
+}
+
+.title-input input::-ms-input-placeholder {
+  text-align: center;
+  color: #D19C94;
+}
+
+.title-input input::placeholder {
+  text-align: center;
+  color: #D19C94;
+}
+
+.title-input button {
+  width: 40px;
+  height: 40px;
+  background-color: #D19C94;
+}
+
+.title-input button img {
+  height: 20px;
+  width: 20px;
+  background: none;
+}
+
+.type-input {
+  width: 100%;
+}
+
+.type-input select {
+  cursor: pointer;
+  margin-top: 0.5em;
+  border: none !important;
+  color: #D19C94;
+}
+
+.type-input select:focus {
+  outline: none !important;
+}
+
+.poster-row-container {
+  position: absolute;
+  overflow: hidden;
+  top: 200px;
+  left: 0;
+  right: 0;
+  height: calc(100vh - 270px);
+  padding-top: 70px;
+}
+
+@media only screen and (max-width: 899px) {
+  .poster-row-container {
+    top: 180px;
+    height: calc(100vh - 200px);
+    padding-top: 20px;
+  }
+}
+
+.poster-row-container .poster-row {
+  rotate: -5deg;
+}
+
+.poster-row-container .poster-row img {
+  margin: 1em;
+  width: 18vw;
+  height: 24vw;
+}
+
+@media only screen and (max-width: 899px) {
+  .poster-row-container .poster-row img {
+    margin: 0.5em;
+    width: 18vh;
+    height: 24vh;
+  }
+}
+
+.poster-row-container .poster-row.odd {
+  margin-left: -6vw;
+}
+
+.infinite-scroll-container {
+  width: 100%;
+  max-width: 1600px;
+}
+
+.infinite-scroll {
+  overflow-y: hidden !important;
+}
+
+.search-card {
+  background-color: #161F1C;
+  margin: 1em;
+  padding: 1em;
+  -webkit-box-shadow: 0 6px 4px -2px #161F1C;
+          box-shadow: 0 6px 4px -2px #161F1C;
+}
+
+@media only screen and (max-width: 899px) {
+  .search-card {
+    margin: 1em 0;
+  }
+}
+
+.search-card .poster {
+  height: 150px;
+  width: 112px;
+  padding-right: 1em;
+  background: none;
+}
+
+@media only screen and (max-width: 899px) {
+  .search-card .poster {
+    height: 100px;
+    width: 75px;
+  }
+}
+
+.search-card .search-info {
+  position: relative;
+  height: 150px;
+  width: 100%;
+  background: none;
+}
+
+@media only screen and (max-width: 899px) {
+  .search-card .search-info {
+    height: 100px;
+  }
+}
+
+.search-card .search-info .title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100px;
+  overflow: hidden;
+  text-align: left;
+  text-overflow: ellipsis;
+}
+
+@media only screen and (max-width: 899px) {
+  .search-card .search-info .title {
+    height: 50px;
+  }
+}
+
+.search-card .search-info .info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: #D19C94;
+}
+
+.search-card .search-info .info img {
+  height: 20px;
+  width: 20px;
+  padding-right: 10px;
+  background: none;
+}
+
+.search-card .search-info button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #A08013;
+  padding: 0 10px;
+}
+
+.search-total-results {
+  margin-top: 2em;
+  margin-bottom: 1em;
+  color: #D19C94;
+  font-weight: 500;
+}
+/*# sourceMappingURL=general.css.map */

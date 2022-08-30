@@ -1,0 +1,255 @@
+$break-sm: 600px
+$break-md: 899px
+$break-lg: 1200px
+
+$black: #161F1C
+$dark-blue: #222B4C
+$light-blue: #D4EAFF
+$salmon: #D19C94
+$gold: #A08013
+
+*
+  background-color: $dark-blue
+  margin: 0
+  padding: 0
+
+  font-family: 'Jost', sans-serif
+  font-weight: 300
+  color: white
+
+body
+  position: relative
+  padding: 2em
+
+#root
+  @extend .center-col
+
+h1, h2, h3, h4, h5, span, p
+  color: inherit
+  background: transparent
+
+h1
+  font-size: 56px
+h2
+  font-size: 36px
+h3
+  font-size: 28px
+h4
+  font-size: 20px
+h5
+  font-size: 16px
+
+@media only screen and (max-width: $break-md)
+  h1
+    font-size: 36px
+  h2
+    font-size: 28px
+  h3
+    font-size: 20px
+  h4
+    font-size: 16px
+  h5
+    font-size: 12px
+
+.title-text
+  font-family: 'Italiana', serif
+  color: $light-blue
+
+.error-text
+  font-weight: 500
+  color: $salmon
+
+.center-col
+  display: flex
+  flex-direction: column
+
+  justify-content: center
+  align-items: center
+  text-align: center
+
+  background: none
+
+.center-row
+  display: flex
+  flex-direction: row
+
+  justify-content: center
+  align-items: center
+  text-align: center
+
+  background: none
+
+.left-row
+  @extend .center-row
+  justify-content: left
+  align-items: flex-start
+  text-align: left
+
+button
+  cursor: pointer
+  border: none
+
+.search-form
+  width: 100%
+  max-width: 900px
+  margin: 1em 0
+
+.title-input
+  @extend .center-row
+  width: 100%
+
+  input
+    @extend h4
+    width: 100%
+    height: 40px
+    background-color: white
+    padding: 0 10px
+
+    border: none
+
+    color: $black
+
+    &:focus
+      outline: none !important
+
+    &::placeholder
+      text-align: center
+      color: $salmon
+
+  button
+    @extend .center-row
+    width: 40px
+    height: 40px
+    background-color: $salmon
+
+    img
+      height: 20px
+      width: 20px
+      background: none
+
+.type-input
+  @extend .left-row
+  width: 100%
+
+  select
+    cursor: pointer
+    margin-top: 0.5em
+    border: none !important
+
+    @extend h4
+    color: $salmon
+
+    &:focus
+      outline: none !important
+
+.poster-row-container
+  position: absolute
+  overflow: hidden
+  top: 200px
+  left: 0
+  right: 0
+
+  height: calc(100vh - 270px)
+  padding-top: 70px
+
+  @media only screen and (max-width: $break-md)
+    top: 180px
+
+    height: calc(100vh - 200px)
+    padding-top: 20px
+
+  .poster-row
+    @extend .center-row
+    rotate: -5deg
+
+    img
+      margin: 1em
+      width: 18vw
+      height: 24vw
+
+      @media only screen and (max-width: $break-md)
+        margin: 0.5em
+        width: 18vh
+        height: 24vh
+
+    &.odd
+      margin-left: -6vw
+
+.infinite-scroll-container
+  width: 100%
+  max-width: 1600px
+
+.infinite-scroll
+  overflow-y: hidden !important
+
+.search-card
+  @extend .center-row
+  background-color: $black
+  margin: 1em
+  padding: 1em
+  box-shadow: 0 6px 4px -2px $black
+
+  @media only screen and (max-width: $break-md)
+    margin: 1em 0
+
+  .poster
+    height: 150px
+    width: 112px
+    padding-right: 1em
+    background: none
+
+    @media only screen and (max-width: $break-md)
+      height: 100px
+      width: 75px
+
+  .search-info
+    position: relative
+    height: 150px
+    width: 100%
+    background: none
+
+    @media only screen and (max-width: $break-md)
+      height: 100px
+
+    .title
+      @extend .title-text
+      position: absolute
+      top: 0
+      left: 0
+      height: 100px
+      overflow: hidden
+
+      text-align: left
+      text-overflow: ellipsis
+
+      @media only screen and (max-width: $break-md)
+        height: 50px
+
+    .info
+      @extend .center-row
+      position: absolute
+      bottom: 0
+      left: 0
+
+      color: $salmon
+
+      img
+        height: 20px
+        width: 20px
+        padding-right: 10px
+        background: none
+
+    button
+      position: absolute
+      bottom: 0
+      right: 0
+
+      background-color: $gold
+      padding: 0 10px
+
+.search-total-results
+  margin-top: 2em
+  margin-bottom: 1em
+
+  color: $salmon
+  font-weight: 500
