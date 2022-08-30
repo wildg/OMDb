@@ -4,7 +4,7 @@ The client code for OMDb, a media search aggregator.
 
 ## Use
 
-To run the server code for this project, you will need to have **node** and **npm** installed on your machine. Furthermore, you will need a `.env` document with a `REACT_APP_API_KEY` variable containing the OMDb API key. Finally, one can `cd` into the repo and run:
+To run the server code for this project, you will need to have **node** and **npm** installed on your machine. Furthermore, you will need a `.env` document in the `/client` folder with a `REACT_APP_API_KEY` variable containing the OMDb API key. Finally, one can `cd` into the `/client` repo and run:
 
 - `npm i`: Installs the necessary dependencies and packages
 - `npm run start`: Runs the client on a development environment
