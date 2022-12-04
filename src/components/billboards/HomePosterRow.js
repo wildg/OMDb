@@ -29,7 +29,6 @@ const posterSrc = [
 ];
 
 function HomePosterRow() {
-  // Odd row animation
   const oddRowAnim = {
     init: { opacity: 1 },
     after: {
@@ -39,7 +38,6 @@ function HomePosterRow() {
     }
   }
 
-  // Even row animation
   const evenRowAnim = {
     init: { opacity: 1 },
     after: {
@@ -50,7 +48,6 @@ function HomePosterRow() {
     }
   }
 
-  // Poster image animation
   const posterAnim = {
     init: { opacity: 0 },
     after: {
@@ -61,9 +58,7 @@ function HomePosterRow() {
     }
   }
 
-  // Create the poster component
   const posterComponent = posterSrc.map((row, rowIndex) => {
-    // Get the posters for the row
     const posters = row.map((ref) => {
       return <motion.img
         variants={posterAnim}
@@ -72,11 +67,9 @@ function HomePosterRow() {
         key={ref}/>
     });
 
-    // Initialize class and animation to use for poster row
     let classes = 'poster-row';
     let anim = evenRowAnim;
 
-    // If the row is odd, then change the classes and animation
     if (rowIndex % 2 === 1) {
       classes += ' odd';
       anim = oddRowAnim

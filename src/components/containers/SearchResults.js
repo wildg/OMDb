@@ -12,16 +12,13 @@ import { SearchContext } from '../../contexts/SearchContext'
 import HomePosterRow from '../billboards/HomePosterRow';
 
 function SearchResults() {
-  // Initialize states
-  const [error, setError] = useState('');         // Error string from API call
-  const [loading, setLoading] = useState(false);  // Wheter or not data is loading
-  const [data, setData] = useState([]);           // Data from API call
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [data, setData] = useState([]);
 
-  // Initialize references
-  const totalResults = useRef(0); // Total results found
-  const pageNumber = useRef(1);   // Current page number
+  const totalResults = useRef(0);
+  const pageNumber = useRef(1);
 
-  // Get search information from the search context
   const { title, type } = useContext(SearchContext);
 
   /**
@@ -30,56 +27,39 @@ function SearchResults() {
    * @param {string} type One of 'all', 'movie', 'series', or 'episode'
    */
   const search = async (title, type) => {
-    // Get the title and type information
     const res = await get(title, pageNumber.current, type);
 
-    // If the response was false, set an error
-    if (res['Response'] === 'False') setError(res['Error']);
-
-    // Otherwise, update the data, total results, and page number
-    else {
+    if (res['Response'] === 'False') {
+      setError(res['Error']);
+    } else {
       setData((prevData) => prevData.concat(res['Search']));
       totalResults.current = parseInt(res['totalResults']);
       pageNumber.current += 1;
     }
 
-    // Set loading to be false
     setLoading(false);
   }
 
   /**
    * Makes a debounced search to the API for every second of inaction
    */
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const debounceSearch = useCallback(
     debounce(search, 1000), []
   );
 
-  // Updates data on search input change
   useEffect(() => {
-    // Reset loading, error, data, and page number states
     setLoading(true);
     setError('');
     setData([]);
     pageNumber.current = 1
 
-    // If title is empty, set loading to false
-    if (title === '') setLoading(false);
-
-    // Otherwise, perform debounced search
-    else debounceSearch(title, type);
+    title === '' ? setLoading(false) : debounceSearch(title, type);
   }, [title, type, debounceSearch]);
 
-  // If the title is empty, return popular posters
   if (title === '') return <HomePosterRow />;
-
-  // If data is still loading, return the circular progress component
   if (loading) return <CircularProgress />;
+  if (error !== '') return <ErrorText text={error} />;
 
-  // If there is an error, return that error
-  else if (error !== '') return <ErrorText text={error} />;
-
-  // Otherwise, return the data
   return (
     <div className="infinite-scroll-container">
       <InfiniteScroll

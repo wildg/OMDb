@@ -4,10 +4,7 @@ import { motion } from 'framer-motion';
 import { Grid } from '@mui/material';
 
 function SearchCard(values) {
-  // Get the information from values
   const { Title, Year, Type, imdbID } = values;
-
-  // Determine if poster was not provided
   const Poster = values.Poster === 'N/A' ? './images/MissingPoster.png' : values.Poster;
 
   /**
@@ -19,7 +16,6 @@ function SearchCard(values) {
     alert('Done demo!');
   }
 
-  // Card animation
   const cardAnim = {
     init: { opacity: 0, y: '5%'},
     after: {
@@ -31,7 +27,6 @@ function SearchCard(values) {
     }
   }
 
-  // Viewport information
   const viewport = { once: true, margin: '-40px' };
 
   return (

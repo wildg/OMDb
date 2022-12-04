@@ -3,7 +3,6 @@ import { useContext } from 'react';
 import { SearchContext } from '../../contexts/SearchContext';
 
 function TypeInput() {
-  // Get the type from the search context
   const { type, updateType } = useContext(SearchContext);
 
   return (
